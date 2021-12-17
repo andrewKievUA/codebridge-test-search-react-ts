@@ -5,6 +5,8 @@ import App from './App';
 import {BrowserRouter} from "react-router-dom"
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import  axios from 'axios'
 
 import logger from 'redux-logger'
 
@@ -24,16 +26,37 @@ function counterReducer(state = { value: 0 }, action :any) {
 
 const store = createStore(
   counterReducer,
-  applyMiddleware(logger)
+  applyMiddleware(logger,thunk)
 )
 
-store.subscribe(() => console.log(store.getState()))
+
 store.dispatch({ type: 'counter/incremented' })
 store.dispatch({ type: 'counter/incremented' })
 store.dispatch({ type: 'counter/decremented' })
 
 console.log("HELLO");
 
+
+const fetchUsers=()=>{
+  return function (dispatch:any) {
+    axios.get('https://api.spaceflightnewsapi.net/v3/articles?_limit=100')
+         .then(function (response:any) {
+             // handle success
+             console.log(response.data,"// handle success")
+             return response.data
+         })
+         .catch(function (error:any) {
+             // handle error
+             console.log(error);
+         })
+         .then(function () {
+             // always executed
+         });
+    
+  }
+}
+
+console.log(fetchUsers());
 
 
 ReactDOM.render(

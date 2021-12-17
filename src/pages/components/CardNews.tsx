@@ -5,6 +5,7 @@ import dateFormat from "dateformat";
 import Toolbar from '@mui/material/Toolbar';
 import SearchIcon from '@mui/icons-material/Search';
 import {Search,SearchIconWrapper,StyledInputBase,Item} from "./SearchInput/SearchInput"
+import { connect } from 'react-redux';
 
 import Box from '@mui/material/Box';
 
@@ -14,7 +15,9 @@ import {Link} from "react-router-dom";
 
 
 
-export const CardNews = () => {
+ const  CardNews = (value:any) => {
+   console.log(value);
+   
 
     interface Inews  {
         featured: Boolean
@@ -104,11 +107,10 @@ if(globalArrOfData && !inputText){  //lilte bit optimizating in case of imput Te
                     <div className="title monts" >{el.title.split(' ').map((e)=>{return(e===inputText)?(<span className="highlight"> {e}</span>):<span>{" "+e}</span>}).slice(0,30)}</div>
                     <div className="small-content monts" >{el.summary.split(' ').map((e)=>{return(e===inputText)?(<span className="highlight"> {e}</span>):<span>{" "+e}</span>}).slice(0,30)}</div>
                     
-                    <Link to={`/solo/${el.id}`}><a href={`${el.url}`} className="arrow monts-600-bold" >Read More <img src={require('./arrow.png')}  className="imgArrow"/> </a> </Link>
+                    <Link to={`/solo/${el.id}`} className="arrow monts-600-bold">  <img src={require('./arrow.png')}  className="imgArrow"/>  Read More</Link>
                 </div>
             ):null}         
         </div>
-
         
         </Grid>
         <Grid item xs={0.4}>
@@ -120,3 +122,16 @@ if(globalArrOfData && !inputText){  //lilte bit optimizating in case of imput Te
         </div>
     )
 }
+
+
+
+
+
+export function mapStateToProps({ value }: any) {
+  return {
+    value,
+  };
+}
+
+export default connect(mapStateToProps,null)(CardNews);
+//export default CardNews;
