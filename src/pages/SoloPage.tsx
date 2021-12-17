@@ -2,6 +2,7 @@ import React,{useEffect} from "react"
 import  axios from 'axios'
 import {Link} from "react-router-dom";
 import "./SoloPage.scss"
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 
@@ -52,7 +53,7 @@ export const SoloPage = () => {
                     {resServ[0]? <div className="titleSummary">{resServ[0].summary}  <div/> 
                     <br/> {fish}<br/>
                
-                    <Link to={`/`}><a href={`/`} className="arrow-home" > Back to homepage </a> </Link>
+                    <Link to={`/`}><a href={`/`} className="arrow-home" > <ArrowBackIcon fontSize="small"/>  Back to homepage </a> </Link>
                     </div>
                     :null    }
 

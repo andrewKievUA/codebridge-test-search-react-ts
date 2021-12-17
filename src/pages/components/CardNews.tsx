@@ -99,10 +99,11 @@ if(globalArrOfData && !inputText){  //lilte bit optimizating in case of imput Te
             {globalArrOfDataFiltered? globalArrOfDataFiltered.map((el,index)=>
           
                 <div className="cardNews" key={el.id  || index}> 
-                    <div className="imgCard"><img src={el.imageUrl} alt={"logo"} className="imgCard"/> </div>       
+                    <div className="imgCard"><img src={el.imageUrl} alt={"Unfortunately the image is not available"} className="imgCard"/> </div>       
                     <div className="dates monts" >{dateFormat(el.publishedAt, "mmmm dS, yyyy")}</div>
                     <div className="title monts" >{el.title.split(' ').map((e)=>{return(e===inputText)?(<span className="highlight"> {e}</span>):<span>{" "+e}</span>}).slice(0,30)}</div>
                     <div className="small-content monts" >{el.summary.split(' ').map((e)=>{return(e===inputText)?(<span className="highlight"> {e}</span>):<span>{" "+e}</span>}).slice(0,30)}</div>
+                    
                     <Link to={`/solo/${el.id}`}><a href={`${el.url}`} className="arrow monts-600-bold" >Read More <img src={require('./arrow.png')}  className="imgArrow"/> </a> </Link>
                 </div>
             ):null}         
