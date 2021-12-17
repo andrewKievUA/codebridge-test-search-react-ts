@@ -1,0 +1,76 @@
+.imgCard{
+    height: 245px;
+    overflow: hidden;
+}
+
+.imgCardSolo{
+    
+  width: 100%;
+}
+
+.totalContainer{
+    text-align: center;
+    z-index: 0;
+    height: 120%;
+}
+
+.containerSolo{
+    position: relative ;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 15%;
+    
+    z-index: 10;
+    top: -100px;
+    bottom:-50px;
+    height: auto;
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    padding-bottom:90px ;
+    background-size: cover;
+     
+}
+
+.titleSolo{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    top: 55px;    
+    color: #363636;
+    position: relative;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.titleSummary{
+    position: relative;
+   
+    top: 114px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 150%;
+    color: #000000;
+    margin-bottom: 70px; 
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: left;
+    }
+
+
+    .arrow-home{
+        z-index: 99;
+        bottom: 20px;
+        font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 150%;
+    }

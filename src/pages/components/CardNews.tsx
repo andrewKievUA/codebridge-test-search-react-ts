@@ -6,7 +6,6 @@ import Toolbar from '@mui/material/Toolbar';
 import SearchIcon from '@mui/icons-material/Search';
 import {Search,SearchIconWrapper,StyledInputBase,Item} from "./SearchInput/SearchInput"
 
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 
 import Grid from '@mui/material/Grid';
