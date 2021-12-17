@@ -28,6 +28,17 @@ padding-bottom: 5px; /* Расстояние от текста до линии *
 font-family: 'Montserrat', sans-serif;
 }
 
+.monts-600-bold{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+
+}
+
+.monts-600{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    }
+
 .inputFilter{
 width: 600px;
 height: 50px;
@@ -61,7 +72,7 @@ margin: 0 auto;
             font-size: 14px;
             text-align: start;
             margin-left: 25px;
-            margin-top: 5px;
+            margin-top: 15px;
             color: #363636;
             opacity: 60%;
             height: 21px;
@@ -70,9 +81,9 @@ margin: 0 auto;
         .title{
             display: block;
             font-size: 24px;
-            margin: 20px 25px 20px 20px;
+            margin: 5px 25px 20px 20px;
             text-align: left;
-            height: 90px;   
+            height: 100px;   
             top:287px;
             font-weight: 100;
             
@@ -84,7 +95,7 @@ margin: 0 auto;
             margin: 20px 25px 20px 16px;
             height: 96px;
             font-weight: 100;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Montserrat', sans-serif;
           
         }
         
@@ -92,12 +103,13 @@ margin: 0 auto;
             display: inline-block;
             font-size: 16px;
             font-weight: bold;    
-            font-style: normal;
+            font-family: 'Montserrat', sans-serif;
             color: #363636;
             display: table-cell;
             padding-left: 20px;
             text-decoration: dotted;
             font-weight: bold;
+            
  
               
         }

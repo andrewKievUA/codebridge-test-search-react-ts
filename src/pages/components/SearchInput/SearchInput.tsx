@@ -1,5 +1,6 @@
 import { styled, alpha } from '@mui/material/styles'
 import InputBase from '@mui/material/InputBase';
+import Paper from '@mui/material/Paper';
 
 export const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -47,3 +48,10 @@ export const SearchIconWrapper = styled('div')(({ theme }) => ({
   },
 }));
 
+
+export const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
