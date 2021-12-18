@@ -107,13 +107,13 @@ const CardNews = (value: any) => {
 
                                     <div className="title monts">{
                                         (el.title.search(inputText) === -1)
-                                            ? el.title
+                                            ? el.title.slice(0, 200)
                                             : insertMarkHandler(el.title, el.title.search(inputText), inputText.length)
                                     }</div>
 
                                     <div className="small-content monts">{
                                         (el.summary.search(inputText) === -1)
-                                            ? el.summary
+                                            ? el.summary.slice(0, 200)
                                             : insertMarkHandler(el.summary, el.summary.search(inputText), inputText.length)
                                     }</div>
 
