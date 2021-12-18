@@ -10,8 +10,11 @@ import parse from 'html-react-parser'
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { Link } from "react-router-dom";
+import useInput from "../../../hooks/useInput"
 
-const CardNews = (value: any) => {
+const CardNews = (valueR: any,dispatch: any) => {
+    console.log( valueR,'Target Markerring!!');
+    console.log( dispatch,'Target Markerring!!dispatch');
     
 
     interface Inews {
@@ -44,8 +47,13 @@ const CardNews = (value: any) => {
             });
     }, [])
 
-    const [inputText, setInputText] = useState<string>("")
+    //const [inputText, setInputText] = useState<string>("")
 
+    const {inputText , onChange } =useInput("")
+
+    
+
+    
     //marking by yellow
     let insertMarkHandler = (string: string, pos: number, len: number) => {
         let t1 = string.slice(0, 200)
@@ -86,9 +94,7 @@ const CardNews = (value: any) => {
                                 </SearchIconWrapper>
                                 <StyledInputBase
                                     placeholder="Search…"
-                                    onChange={(e) => {
-                                        setInputText(e.target.value)
-                                    }}
+                                    onChange={onChange}
                                     inputProps={{ 'aria-label': 'search' }}
                                 />
                             </Search>
@@ -131,11 +137,16 @@ const CardNews = (value: any) => {
     )
 }
 
-export function mapStateToProps({ value }: any) {
+export function mapStateToProps({ valueR }: any) {
     return {
-        value,
+        valueR,
     };
 }
 
-export default connect(mapStateToProps, null)(CardNews);
+function mapDispatchToProps(dispatch: any) {
+    return  {getData:()=>{dispatch({type:"counter/incremented"})}
+      }
+    }
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardNews);
 //export default CardNews;
