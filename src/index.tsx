@@ -30,33 +30,32 @@ const store = createStore(
 )
 
 
-store.dispatch({ type: 'counter/incremented' })
-store.dispatch({ type: 'counter/incremented' })
-store.dispatch({ type: 'counter/decremented' })
-
-console.log("HELLO");
+// store.dispatch({ type: 'counter/incremented' })
+// store.dispatch({ type: 'counter/incremented' })
+// store.dispatch({ type: 'counter/decremented' })
 
 
-const fetchUsers=()=>{
-  return function (dispatch:any) {
-    axios.get('https://api.spaceflightnewsapi.net/v3/articles?_limit=100')
-         .then(function (response:any) {
-             // handle success
-             console.log(response.data,"// handle success")
-             return response.data
-         })
-         .catch(function (error:any) {
-             // handle error
-             console.log(error);
-         })
-         .then(function () {
-             // always executed
-         });
+
+// const fetchUsers=()=>{
+//   return function (dispatch:any) {
+//     axios.get('https://api.spaceflightnewsapi.net/v3/articles?_limit=100')
+//          .then(function (response:any) {
+//              // handle success
+//              c(response.data,"// handle success")
+//              return response.data
+//          })
+//          .catch(function (error:any) {
+//              // handle error
+//              console.log(error);
+//          })
+//          .then(function () {
+//              // always executed
+//          });
     
-  }
-}
+//   }
+// }
 
-console.log(fetchUsers());
+// console.log(fetchUsers());
 
 
 ReactDOM.render(

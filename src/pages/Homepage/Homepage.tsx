@@ -1,6 +1,6 @@
 
 import React from 'react';
-import  CardNews  from './components/CardNews';
+import  CardNews  from './CardNews/CardNews';
 
 export const Homepage = () => {
 

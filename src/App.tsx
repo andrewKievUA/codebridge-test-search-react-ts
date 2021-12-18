@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Homepage } from './pages/Homepage';
-import { SoloPage } from './pages/SoloPage';
+import { Homepage } from './pages/Homepage/Homepage';
+import { SoloPage } from './pages/SoloPage/SoloPage';
 
 import {Route, Switch,Redirect} from "react-router-dom";
 import './App.css';
