@@ -1,82 +1,37 @@
 import "./CardNews.scss"
-import { useState, useEffect } from 'react';
-import axios from 'axios'
 import dateFormat from "dateformat";
 import Toolbar from '@mui/material/Toolbar';
 import SearchIcon from '@mui/icons-material/Search';
 import { Search, SearchIconWrapper, StyledInputBase } from "../SearchInput/SearchInput"
-import { connect } from 'react-redux';
 import parse from 'html-react-parser'
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { Link } from "react-router-dom";
 import useInput from "../../../hooks/useInput"
+import useFetch from "../../../hooks/useFetch"
 
-const CardNews = (valueR: any,dispatch: any) => {
-    console.log( valueR,'Target Markerring!!');
-    console.log( dispatch,'Target Markerring!!dispatch');
-    
-
-    interface Inews {
-        featured: Boolean
-        id: number
-        imageUrl: "string"
-        newsSite: "string"
-        publishedAt: "string"
-        summary: "string"
-        title: "string"
-        url: "string"
-    }
-
-    const [globalArrOfData, setGlobalArrOfData] = useState<Inews[]>()
+const CardNews = () => {
 
 
-    useEffect(() => {
-        // Make a request for a user with a given ID
-        axios.get('https://api.spaceflightnewsapi.net/v3/articles?_limit=100')
-            .then(function (response: any) {
-                // handle success
-                setGlobalArrOfData(response.data)
-            })
-            .catch(function (error: any) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
-    }, [])
+    //using custom hooks by request
+    const { globalArrOfData } = useFetch('https://api.spaceflightnewsapi.net/v3/articles?_limit=100')
+    const { inputText, onChange } = useInput("")
 
-    //const [inputText, setInputText] = useState<string>("")
-
-    const {inputText , onChange } =useInput("")
-
-    
-
-    
     //marking by yellow
-    let insertMarkHandler = (string: string, pos: number, len: number) => {
-        let t1 = string.slice(0, 200)
+    const insertMarkHandler = (string: string, pos: number, len: number) => {
+        const t1 = string.slice(0, 200)
         return parse(t1.slice(0, pos) + "<mark>" + t1.slice(pos, pos + len) + "</mark>" + t1.slice(pos + len))
     }
 
-
     //searching in the titles
-    let globalArrOfDataFiltered = globalArrOfData?.filter((el) => {
-        return inputText ? el.title.includes(inputText) : true
-    })
+    let globalArrOfDataFiltered = globalArrOfData?.filter(el =>inputText ? el.title.includes(inputText) : true)
 
-   
-
-
-     //cheking in the summary list and add to filtered array
+    //searching in the summary list and add to filtered array
     if (globalArrOfDataFiltered && globalArrOfData) {
         globalArrOfDataFiltered = globalArrOfDataFiltered.concat(
-            globalArrOfData?.filter((el) => {
-                return el.summary.includes(inputText)
-            })
+            globalArrOfData?.filter(el => el.summary.includes(inputText))
         )
-        globalArrOfDataFiltered = [... new Set(globalArrOfDataFiltered)] //delete doubling objects
+        globalArrOfDataFiltered = [... new Set(globalArrOfDataFiltered)] //delete double objects
     }
 
     return (
@@ -137,16 +92,6 @@ const CardNews = (valueR: any,dispatch: any) => {
     )
 }
 
-export function mapStateToProps({ valueR }: any) {
-    return {
-        valueR,
-    };
-}
 
-function mapDispatchToProps(dispatch: any) {
-    return  {getData:()=>{dispatch({type:"counter/incremented"})}
-      }
-    }
-
-export default connect(mapStateToProps, mapDispatchToProps)(CardNews);
+export default CardNews;
 //export default CardNews;

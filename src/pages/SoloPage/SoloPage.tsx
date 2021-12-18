@@ -1,8 +1,7 @@
-import React, {useEffect} from "react"
-import axios from 'axios'
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./SoloPage.scss"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import useFetch from "../../hooks/useFetch"
 
 
 export const SoloPage = () => {
@@ -18,44 +17,31 @@ export const SoloPage = () => {
     }
 
 
-    const [resServ, setResServ] = React.useState<Inews[]>([])
-    useEffect(() => {
-        // Make a request for a user with a given ID
-        axios.get(`https://api.spaceflightnewsapi.net/v3/articles?_id=${window.location.href.slice(27)}`)
-            .then(function (response: any) {
-                // handle success
-                setResServ(response.data)
-                ///console.log(response.data)
-            })
-            .catch(function (error: any) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
-    }, [])
+    const { globalArrOfData } = useFetch(`https://api.spaceflightnewsapi.net/v3/articles?_id=${window.location.href.slice(27)}`)
+
+
 
     const fish = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum ornare convallis non etiam tincidunt tincidunt. Non dolor vel purus id. Blandit habitasse volutpat id dolor pretium, sem iaculis. Faucibus commodo mauris enim, turpis blandit. Porttitor facilisi viverra mi lacus lacinia accumsan. Pellentesque gravida ligula bibendum aliquet nulla massa elit. Ac faucibus donec sit morbi pharetra urna. Vel facilisis amet placerat ultrices lobortis proin nulla. Molestie tellus sed pellentesque tortor vitae eu cras nisl. Sem facilisi amet vitae ultrices nullam tellus. Pellentesque eget iaculis morbi at quis eget lacus, aliquam etiam. Neque ipsum, placerat vel convallis nulla orci, nunc etiam. Elementum risus facilisi mauris diam amet et sed. At aliquet id amet, viverra a magna lorem urna. Nibh scelerisque quam quam massa amet, sollicitudin vel non. Gravida laoreet neque tincidunt eu egestas massa vitae nibh. Nec ullamcorper amet tortor, velit. Dictum pellentesque dolor sit duis sed nibh. Euismod rutrum pellentesque semper mattis aliquet ornare. Cursus maecenas massa, arcu ac adipiscing odio facilisis ac eu. In eget ipsum, sed ultrices tempor consequat, elementum cras porta. Sagittis etiam dictumst at duis praesent a. Malesuada odio amet aenean diam. Tincidunt lorem faucibus neque aliquet lobortis feugiat sed aliquam pulvinar. Praesent aliquet ut tempus feugiat placerat quis duis mauris nibh. Eu ullamcorper id feugiat sit risus turpis mi. Tristique posuere sed convallis magna eu vulputate. Cum sit in hac felis blandit. Cursus eu porta lectus mollis nisi, consectetur ac. Ornare vitae lectus iaculis nibh ac et. Adipiscing amet in parturient etiam fames. Facilisi id eu sem in elementum. Lacus, ipsum morbi vel purus ut arcu laoreet id eu. Libero, tincidunt aliquet parturient dolor sapien faucibus nunc. In ipsum suscipit nec pharetra non vitae sagittis aenean sit. Consequat integer sit netus pellentesque scelerisque ut. Elit augue dui viverra facilisi varius. Volutpat iaculis eu ipsum ut. Dui, ut viverra ut amet magna in in varius. Aliquet penatibus pretium feugiat lobortis. Mauris nunc, eu non massa donec sit duis. Libero nascetur mauris, ac in aliquet cras duis donec. Sit porttitor sociis aliquam aliquet odio arcu a viverra. Proin convallis bibendum venenatis non orci id proin vitae. Faucibus eleifend fermentum sit dictum sagittis fermentum. At id nisi, aliquet ut sagittis proin enim. Eget in aenean mi a elit viverra amet urna, diam. Cursus id viverra amet adipiscing. Pretium, amet amet mi mauris urna, maecenas. Risus ut sit quis donec. Lacinia elementum, amet gravida convallis elementum, metus cras. Adipiscing suspendisse etiam tellus tellus arcu. At accumsan rhoncus, fringilla ut scelerisque consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.. `
 
 
     return (
         <div className="totalContainer">
-            {resServ[0] ? <div className="imgCard"><img src={resServ[0].imageUrl} alt={"logo"} className="imgCardSolo"/>
+
+            {globalArrOfData && globalArrOfData[0] ? <div className="imgCard"><img src={globalArrOfData[0].imageUrl} alt={"logo"} className="imgCardSolo" />
             </div> : null}
             <div className="containerSolo">
 
-                {resServ[0] ? <div className="titleSolo">{resServ[0].title}
-                    <div/>
+                {globalArrOfData && globalArrOfData[0] ? <div className="titleSolo">{globalArrOfData[0].title}
+                    <div />
                 </div> : null}
 
-                {resServ[0] ? <div className="titleSummary">{resServ[0].summary}
-                        <div/>
-                        <br/> {fish}<br/>
+                {globalArrOfData && globalArrOfData[0] ? <div className="titleSummary">{globalArrOfData[0].summary}
+                    <div />
+                    <br /> {fish}<br />
 
-                        <Link to={`/`}><a href={`/`} className="arrow-home"> <ArrowBackIcon fontSize="small"/> Back to
-                            homepage </a> </Link>
-                    </div>
+                    <Link to={`/`}><a href={`/`} className="arrow-home"> <ArrowBackIcon fontSize="small" /> Back to
+                        homepage </a> </Link>
+                </div>
                     : null}
 
 
