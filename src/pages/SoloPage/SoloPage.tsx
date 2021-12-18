@@ -39,8 +39,8 @@ export const SoloPage = () => {
                     <div />
                     <br /> {fish}<br />
 
-                    <Link to={`/`}><a href={`/`} className="arrow-home"> <ArrowBackIcon fontSize="small" /> Back to
-                        homepage </a> </Link>
+                    <Link to={`/`}> <ArrowBackIcon fontSize="small" /> Back to
+                        homepage </Link>
                 </div>
                     : null}
 
