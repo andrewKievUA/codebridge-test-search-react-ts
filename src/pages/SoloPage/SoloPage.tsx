@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 import "./SoloPage.scss"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import useFetch from "../../hooks/useFetch"
 
 
 export const SoloPage = () => {
+    
+    console.log( useParams,'Target Markerring');
+    
     interface Inews {
         featured: Boolean
         id: number
@@ -26,7 +29,7 @@ export const SoloPage = () => {
 
     return (
         <div className="totalContainer">
-
+asasdfasdf
             {globalArrOfData && globalArrOfData[0] ? <div className="imgCard"><img src={globalArrOfData[0].imageUrl} alt={"logo"} className="imgCardSolo" />
             </div> : null}
             <div className="containerSolo">
