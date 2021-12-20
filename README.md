@@ -2,8 +2,7 @@
 You need to build Single Page Application with React.
 The following Figma low-fidelity prototype should be used as a basis: 
 
-link.
-[sabaka.net](https://www.figma.com/file/h1veXmuEt84sT7PEZgF42K/Frontend_test)
+[Figma](https://www.figma.com/file/h1veXmuEt84sT7PEZgF42K/Frontend_test)
 ===========
 
 
@@ -16,11 +15,11 @@ The priority of fields: (1) names; and (2) description. The article with one mat
 The matched keywords should be highlighted with yellow color.
 What do we expect?
 
-:white_check_mark: Please use TypeScript as the main language.
-:white_check_mark: CSS preprocessors should be used.
-:white_check_mark: Please use Material UI.
-:white_check_mark: Showing an example of a custom hook will be a plus.
-:black_square_button: Showing an example of state management will be a big plus.
+:white_check_mark: Please use TypeScript as the main language
+:white_check_mark: CSS preprocessors should be used
+:white_check_mark: Please use Material UI
+:white_check_mark: Showing an example of a custom hook will be a plus
+:black_square_button: Showing an example of state management will be a big plus
 
 ____
 Working app
