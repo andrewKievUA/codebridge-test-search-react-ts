@@ -2,7 +2,7 @@
 You need to build Single Page Application with React.
 The following Figma low-fidelity prototype should be used as a basis: 
 
-[Figma](https://www.figma.com/file/h1veXmuEt84sT7PEZgF42K/Frontend_test)
+[link to Figma example](https://www.figma.com/file/h1veXmuEt84sT7PEZgF42K/Frontend_test)
 ===========
 
 
@@ -22,5 +22,5 @@ What do we expect?
 :black_square_button: Showing an example of state management will be a big plus
 
 ____
-Working app
-https://eloquent-einstein-ed4544.netlify.app/
+
+[link to Working app on Server](https://eloquent-einstein-ed4544.netlify.app/)
